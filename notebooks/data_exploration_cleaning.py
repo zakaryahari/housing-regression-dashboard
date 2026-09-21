@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 df = pd.read_csv("data/raw/House_Prices.csv")
 
@@ -38,3 +39,15 @@ for col in missing.index:
 
 print(df.isnull().sum().sum())
 
+# plt.bar(
+#     x= df['GrLivArea'],
+#     y=df['SalePrice']
+# )
+
+plt.scatter(df['GrLivArea'], df['SalePrice'])
+
+plt.title("GrLivArea / SalePrice",fontsize=16)
+plt.xlabel("GrLivArea")
+plt.ylabel("SalePrice")
+
+plt.show()
