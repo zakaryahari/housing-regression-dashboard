@@ -51,3 +51,19 @@ plt.xlabel("GrLivArea")
 plt.ylabel("SalePrice")
 
 plt.show()
+
+out_values = (df['GrLivArea'] > 4000) & (df['SalePrice'] < 300000)
+df = df[~out_values]
+
+
+
+
+plt.scatter(df['GrLivArea'], df['SalePrice'])
+
+plt.title("GrLivArea / SalePrice",fontsize=16)
+plt.xlabel("GrLivArea")
+plt.ylabel("SalePrice")
+
+plt.show()
+
+
