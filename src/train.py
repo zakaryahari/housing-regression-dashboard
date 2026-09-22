@@ -41,3 +41,15 @@ ridge_pred = ridge_model.predict(X_test)
 ridge_score = r2_score(y_test, ridge_pred)
 print(f'Ridge Regression R2 Score: {ridge_score}')
 
+
+from sklearn.ensemble import RandomForestRegressor
+
+
+rf_model = RandomForestRegressor(random_state=42)
+rf_model.fit(X_train, y_train)
+
+
+rf_pred = rf_model.predict(X_test)
+rf_score = r2_score(y_test, rf_pred)
+print(f"Random Forest R2 Score: {rf_score}")
+
