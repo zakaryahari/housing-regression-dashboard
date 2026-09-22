@@ -28,3 +28,16 @@ y_pred = model.predict(X_test)
 score = r2_score(y_test, y_pred)
 print(f"Linear Regression R2 Score: {score}")
 
+
+
+from sklearn.linear_model import Ridge
+
+
+ridge_model = Ridge()
+ridge_model.fit(X_train, y_train)
+
+
+ridge_pred = ridge_model.predict(X_test)
+ridge_score = r2_score(y_test, ridge_pred)
+print(f'Ridge Regression R2 Score: {ridge_score}')
+
