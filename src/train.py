@@ -21,3 +21,10 @@ print("X_test shape:", X_test.shape)
 from sklearn.linear_model import LinearRegression
 model = LinearRegression()
 model.fit(X_train, y_train)
+
+from sklearn.metrics import r2_score
+
+y_pred = model.predict(X_test)
+score = r2_score(y_test, y_pred)
+print(f"Linear Regression R2 Score: {score}")
+
