@@ -5,7 +5,7 @@ df = pd.read_csv("data/processed/engineered_house_prices.csv")
 
 # print(df)
 
-df['SalePrice'] = round(df['SalePrice'], 0)
+
 y = df['SalePrice']
 x = df.drop(columns='SalePrice')
 
@@ -39,6 +39,17 @@ xgb_model.fit(X_train, y_train)
 xgb_pred = xgb_model.predict(X_test)
 xgb_score = r2_score(y_test, xgb_pred)
 print(f'XGBoost R2 Score: {xgb_score}')
+
+from sklearn.linear_model import Ridge
+
+
+ridge_model = Ridge()
+ridge_model.fit(X_train, y_train)
+
+
+ridge_pred = ridge_model.predict(X_test)
+ridge_score = r2_score(y_test, ridge_pred)
+print(f'Ridge Regression R2 Score: {ridge_score}')
 
 
 from sklearn.ensemble import RandomForestRegressor
