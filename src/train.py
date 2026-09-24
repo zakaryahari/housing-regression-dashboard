@@ -63,3 +63,10 @@ rf_pred = rf_model.predict(X_test)
 rf_score = r2_score(y_test, rf_pred)
 print(f"Random Forest R2 Score: {rf_score}")
 
+import joblib
+
+importances = pd.Series(xgb_model.feature_importances_, index=X_train.columns)
+top_10_features = importances.sort_values(ascending=False).head(10)
+
+joblib.dump(xgb_model, 'champion_xgboost.pkl')
+print("Champion XGBoost model successfully saved as 'champion_xgboost.pkl'!")
