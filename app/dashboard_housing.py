@@ -58,3 +58,22 @@ if predict_btn:
         'RoofMatl_WdShngl': [mapping[roof]],
         'Functional_Typ': [mapping[functional]]
     })
+
+    for col in model_columns:
+        if col not in input_data.columns:
+            input_data[col] = 0
+
+    input_data = input_data[model_columns]
+    
+
+    prediction = model.predict(input_data)
+
+    final_price = prediction[0]
+    
+
+    st.success(f"### ${final_price:,.0f}")
+    st.caption("Estimated Market Price")
+    st.divider()
+    
+
+    col1, col2 = st.columns(2)
