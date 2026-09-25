@@ -77,3 +77,26 @@ if predict_btn:
     
 
     col1, col2 = st.columns(2)
+    
+    with col1:
+        st.subheader("Model Details")
+        st.markdown("""
+        * **Model:** Tuned Ridge Regression
+        * **Target:** LogSalePrice
+        * **Total Features Expected:** 150+
+        * **Status:** Operational
+        """)
+        
+    with col2:
+        st.subheader("Feature Breakdown")
+        st.write("Values used for this prediction:")
+        st.markdown(f"""
+        **Size**
+        * Living Area: {surface_area} SqFt
+        
+        **Overview**
+        * Stone Brook Neighborhood: {stonebr}
+        * Northridge Neighborhood: {noridge}
+        * Excellent Kitchen: {kitchen}
+        * New Construction: {saletype}
+        """)
