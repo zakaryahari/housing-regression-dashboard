@@ -37,3 +37,24 @@ predict_btn = st.sidebar.button("Predict Price", type="primary", use_container_w
 
 st.title("🏠 Housing Price Predictor")
 st.caption("Ames Housing Dataset — Ridge Regression model trained on LogSalePrice")
+
+with st.expander("📊 Model Information"):
+    st.write("This application uses a tuned Ridge Regression model to predict property values based on the most statistically significant housing features.")
+
+if predict_btn:
+
+    mapping = {"Yes": 1, "No": 0}
+
+    input_data = pd.DataFrame({
+        'GrLivArea': [surface_area],
+        'Neighborhood_StoneBr': [mapping[stonebr]],
+        'Neighborhood_NoRidge': [mapping[noridge]],
+        'Neighborhood_Mitchel': [mapping[mitchel]],
+        'LandSlope_Sev': [mapping[landslope]],
+        'SaleType_New': [mapping[saletype]],
+        'KitchenQual_Ex': [mapping[kitchen]],
+        'BsmtQual_Ex': [mapping[bsmt_qual]],
+        'BsmtExposure_Gd': [mapping[bsmt_exp]],
+        'RoofMatl_WdShngl': [mapping[roof]],
+        'Functional_Typ': [mapping[functional]]
+    })
